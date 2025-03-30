@@ -1,5 +1,7 @@
+from typing import Dict, List
+
 import psycopg2
-from typing import List, Dict
+
 from db_config import DB_PARAMS
 
 

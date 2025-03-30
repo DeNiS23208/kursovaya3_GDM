@@ -1,5 +1,7 @@
-import psycopg2
 from typing import List, Tuple
+
+import psycopg2
+
 from db_config import DB_PARAMS
 
 
