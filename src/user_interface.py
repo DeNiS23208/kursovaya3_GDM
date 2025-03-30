@@ -1,4 +1,4 @@
-from db_manager import DBManager
+from src.db_manager import DBManager
 
 
 def run_interface():

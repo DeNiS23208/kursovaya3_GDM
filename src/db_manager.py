@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 import psycopg2
 
-from db_config import DB_PARAMS
+from src.db_config import DB_PARAMS
 
 
 class DBManager:

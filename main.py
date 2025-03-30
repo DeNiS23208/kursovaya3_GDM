@@ -1,8 +1,7 @@
-from api_hh import HHAPI
-from create_db import create_database, create_tables
-from user_interface import run_interface
-from vacancies_handler import insert_companies, insert_vacancies
-
+from src.api_hh import HHAPI
+from src.create_db import create_database, create_tables
+from src.user_interface import run_interface
+from src.vacancies_handler import insert_companies, insert_vacancies
 
 def main():
     # Создание базы данных

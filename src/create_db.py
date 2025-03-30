@@ -1,6 +1,6 @@
 import psycopg2
 
-from db_config import DB_PARAMS
+from src.db_config import DB_PARAMS
 
 
 def create_database(db_name: str):
