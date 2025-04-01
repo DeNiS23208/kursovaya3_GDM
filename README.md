@@ -22,11 +22,3 @@
   - Искать вакансии по ключевому слову
 
 ---
-
-## 🚀 Как запустить
-
-1. Клонировать репозиторий:
-
-```bash
-git clone https://github.com/your-username/hh_project.git
-cd hh_project

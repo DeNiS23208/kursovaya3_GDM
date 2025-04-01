@@ -1,16 +1,28 @@
-from typing import List, Dict, Union
+from typing import Dict, List, Union
+
 import requests
 
 
 class HHAPI:
     BASE_URL = "https://api.hh.ru"
 
+    def get_employers(self, employer_ids: List[str]) -> List[Dict]:
+        """
+        Получает данные о работодателях по их ID
+        """
+        employers = []
+        for emp_id in employer_ids:
+            url = f"{self.BASE_URL}/employers/{emp_id}"
+            response = requests.get(url)
+            if response.status_code == 200:
+                employers.append(response.json())
+            else:
+                print(f"Ошибка при получении данных о работодателе {emp_id}")
+        return employers
+
     def get_vacancies(self, employer_id: str) -> List[Dict]:
         """
-        Получает вакансии конкретного работодателя
-
-        :param employer_id: ID работодателя
-        :return: Список словарей с вакансиями
+        Получает список вакансий конкретного работодателя
         """
         vacancies = []
         page = 0

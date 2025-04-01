@@ -1,6 +1,8 @@
-import psycopg2
 from typing import List, Tuple
-from db_config import DB_PARAMS
+
+import psycopg2
+
+from src.db_config import DB_PARAMS
 
 
 class DBManager:

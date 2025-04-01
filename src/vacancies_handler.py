@@ -1,6 +1,8 @@
+from typing import Dict, List
+
 import psycopg2
-from typing import List, Dict
-from db_config import DB_PARAMS
+
+from src.db_config import DB_PARAMS
 
 
 def insert_companies(companies: List[Dict]):

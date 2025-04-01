@@ -1,5 +1,37 @@
 import psycopg2
-from db_config import DB_PARAMS
+
+from src.db_config import DB_PARAMS
+
+
+def create_database(db_name: str):
+    """Создаёт базу данных, если она не существует"""
+    import os
+
+    import psycopg2
+    from dotenv import load_dotenv
+
+    load_dotenv()
+
+    connection = psycopg2.connect(
+        dbname="postgres",
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT"),
+    )
+    connection.autocommit = True
+    cursor = connection.cursor()
+
+    cursor.execute(f"SELECT 1 FROM pg_database WHERE datname = '{db_name}'")
+    exists = cursor.fetchone()
+    if not exists:
+        cursor.execute(f"CREATE DATABASE {db_name}")
+        print(f"База данных '{db_name}' успешно создана.")
+    else:
+        print(f"База данных '{db_name}' уже существует.")
+
+    cursor.close()
+    connection.close()
 
 
 def create_tables():
